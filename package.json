@@ -48,6 +48,8 @@
     "webpack-dev-server": "^3.8.2"
   },
   "dependencies": {
+    "card": "^2.5.0",
+    "card-info": "^1.2.4",
     "core-js": "^3.6.5",
     "regenerator-runtime": "^0.13.7"
   }
