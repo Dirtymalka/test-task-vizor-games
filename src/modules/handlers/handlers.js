@@ -7,11 +7,10 @@ function changeCardType() {
   const master = document.getElementById('master');
   const card = document.getElementById('card-edit');
   const logo = document.getElementById('logo-edit');
-  const number = document.querySelector('.card-number-edit');
   if (visa.checked) {
     card.style.backgroundImage = 'url(../img/background-visa.png)';
     logo.src = 'img/visa.png';
-    logo.style.backgroundColor = 'transparent';
+    // logo.style.backgroundColor = 'transparent';
   }
   if (master.checked) {
     card.style.backgroundImage = 'url(../img/background-master-card.jpg)';
@@ -44,14 +43,15 @@ function closeModal(elemClass) {
 }
 
 function saveCard() {
-  document.querySelector('.card-rules') ? document.querySelector('.card-rules').outerHTML = '' : null;
-  const cardIsValid = checkCardNumber();
-  if (!cardIsValid) {
-    invalidNumberHandler();
-    return;
-  }
   const cards = getFromLocalStorage(CARDS, []);
   const number = document.getElementById("cardNumber").value;
+  document.querySelector('.card-rules') ? document.querySelector('.card-rules').outerHTML = '' : null;
+  const repeatCards = cards.some((card) => card.number == number);
+  const cardIsValid = checkCardNumber();
+  if (!cardIsValid || repeatCards) {
+    invalidNumberHandler(repeatCards);
+    return;
+  }
   const type = document.getElementById('visa').checked ? 'visa' : 'master-card';
   const comment = document.getElementById("card-comment").value;
   const newCard = createStaticCardLayout(number, type, comment);
@@ -102,21 +102,29 @@ function checkCardNumber() {
   return true;
 }
 
-function invalidNumberHandler() {
+function invalidNumberHandler(repeatCards) {
   const rulesVisa = `<div class="alert alert-danger card-rules" role="alert">
   The credit card "Visa" must be of the form 4XXX-XXXX-XXXX-XXXX.
 </div>`;
   const rulesMasterCard = `<div class="alert alert-danger card-rules" role="alert">
   The credit card "Master-card" must be of the form 5[1-5]XX-XXXX-XXXX-XXXX.
 </div>`;
+  const repeatCard = `<div class="alert alert-danger card-rules" role="alert">
+A card with the same name already exists.
+</div>`;
+  // const isRepeatCards = cards.some((card) => card.number == number);
   const visa = document.getElementById('visa');
   const master = document.getElementById('master');
   document.getElementById("cardNumber").value = '';
   document.getElementById("cardNumber").placeholder = 'Invalid number';
   document.getElementById("displayNumber-edit").innerHTML = '';
-  if (visa.checked) {
-    document.querySelector('.card-number-container').insertAdjacentHTML('afterend', rulesVisa);
+  if (repeatCards) {
+    document.querySelector('.card-number-container').insertAdjacentHTML('afterend', repeatCard);
+    return;
   }
+  if (visa.checked) {
+      document.querySelector('.card-number-container').insertAdjacentHTML('afterend', rulesVisa);
+    }
   if (master.checked) {
     document.querySelector('.card-number-container').insertAdjacentHTML('afterend', rulesMasterCard);
   }
@@ -125,7 +133,7 @@ function invalidNumberHandler() {
 function showComment(event) {
   const cardNumber = event.target.dataset.number;
   document.querySelectorAll('.collapse').forEach((item) => {
-    if(item.dataset.number == cardNumber) {
+    if (item.dataset.number == cardNumber) {
       if (item.classList.contains('show')) {
         item.classList.remove('show');
         return;
