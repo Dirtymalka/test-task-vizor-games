@@ -1,5 +1,4 @@
-import {createCards, cardLayout} from '../modules/createCards/createCards';
-import CardInfo from 'card-info';
+import { createContent } from '../modules/createCards/createCards';
 import '../css/style.css';
 
-createCards();
+createContent();

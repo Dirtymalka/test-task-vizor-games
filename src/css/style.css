@@ -1,38 +1,74 @@
-@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@600&family=Lemonada:wght@600&family=Pacifico&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@500&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap');
-@import url('//db.onlinewebfonts.com/c/feb5fbe240f4a3e4aee19523b6c905b4?family=Farrington-7B-Qiqi');
-@import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
 body {
-    margin-top: 100px;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(130 128 128 / 40%);
+}
+
+.app-container {
+  width: 100%;
+}
+
+.header {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  z-index: 1000;
+  padding: 25px 0;
+  background-color: rgb(0 0 0 / 55%);
+  color: white;
+  font-family: 'Roboto', sans-serif;
+}
+
+.main {
+  margin-top: 100px;
 }
 
 .container {
-    margin-top: 50px;
-    /* max-width: 300px; */
-    height: 340px;
-    padding: 10px;
-    background-color: white;
-    border-radius: 15px;
-    border-style: solid;
-    border-color: black;
-    overflow: hidden;
-    box-shadow: 10px 10px 5px -6px rgba(0, 0, 0, 0.75);
+  margin-top: 50px;
+  /* max-width: 300px; */
+  height: 340px;
+  padding: 10px;
+  background-color: white;
+  border-radius: 15px;
+  border-style: solid;
+  border-color: black;
+  overflow: hidden;
+  box-shadow: 10px 10px 5px -6px rgba(0, 0, 0, 0.75);
+}
+
+.cards-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 420px;
+  margin: auto;
+}
+
+.list-group-item {
+  width: 100%;
+  background-color: inherit;
+}
+
+.card-header {
+  background-color: white;
 }
 
 .card {
-    margin-top: 30px;
-    transition: 0.5s;
-    width: 380px;
-    height: 200px;
-    border-radius: 15px;
-    background-color: black;
-    /* background-image: url('./assets/visa.png'); */
-    box-shadow: 10px 10px 5px -6px rgba(0, 0, 0, 0.75);
+  margin: 20px auto;
+  transition: 0.5s;
+  max-width: 380px;
+  width: 100%;
+  height: 200px;
+  border-radius: 15px;
+  background-color: black;
+  box-shadow: 10px 10px 5px -6px rgba(0, 0, 0, 0.75);
+}
+
+.card:hover {
+  box-shadow: 10px 10px 20px -6px rgba(0, 0, 0, 0.75);
 }
 
 .card-add {
@@ -54,40 +90,60 @@ body {
 .master-card {
   background-image: url(../img/background-master-card.jpg);
   background-size: contain;
-  color: #000;
-}
-
-.master-card .card-number {
-  color: #000;
 }
 
 .card-position {
-    position: relative;
+  position: relative;
 }
 
 .logo {
-    width: 100px;
-    position: absolute;
-    right: 0px;
-    top: 130px;
+  width: 100px;
+  position: absolute;
+  right: 0px;
+  top: 130px;
 }
 
 .card-number {
-    position: absolute;
-    left: 20px;
-    bottom: -130px;
-    color: white;
-    flex-direction: column;
-    align-items: flex-start;
-    width: fit-content;
-    font-family: 'Russo One', sans-serif;
-    font-size: 1.4rem;
+  margin: 3px 0;
+  position: absolute;
+  left: 20px;
+  bottom: -130px;
+  color: white;
+  flex-direction: column;
+  align-items: flex-start;
+  width: fit-content;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.6rem;
 }
 
 .sim {
-    width: 100px;
-    height: 80px;
-    position: absolute;
-    left: -10px;
-    bottom: -90px;
+  width: 100px;
+  height: 80px;
+  position: absolute;
+  left: -10px;
+  bottom: -90px;
+}
+
+.delete {
+  position: absolute;
+  right: -3px;
+}
+
+.delete:hover {
+  cursor: pointer;
+}
+
+.alert-danger {
+  margin-top: 10px;
+}
+
+.btn-collapse-container {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.card-body {
+  background: white;
+  word-wrap: break-word;
 }
