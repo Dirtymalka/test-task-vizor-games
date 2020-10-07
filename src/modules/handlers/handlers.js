@@ -1,5 +1,5 @@
 import { getFromLocalStorage, setToLocalStorage } from '../../utils/utils';
-import { createModal, createModalToConfirm, createAddCardLayout, createStaticCardLayout, createNewCardLayout } from '../layouts/layouts';
+import { createStaticCardLayout } from '../layouts/layouts';
 import { CARDS } from '../../constants/constants';
 
 function changeCardType() {
@@ -8,9 +8,9 @@ function changeCardType() {
   const card = document.getElementById('card-edit');
   const logo = document.getElementById('logo-edit');
   if (visa.checked) {
-    card.style.backgroundImage = 'url(../img/background-visa.png)';
+    card.style.backgroundImage = 'url(../img/background-visa.jpg)';
     logo.src = 'img/visa.png';
-    // logo.style.backgroundColor = 'transparent';
+    logo.style.backgroundColor = 'transparent';
   }
   if (master.checked) {
     card.style.backgroundImage = 'url(../img/background-master-card.jpg)';
@@ -112,7 +112,6 @@ function invalidNumberHandler(repeatCards) {
   const repeatCard = `<div class="alert alert-danger card-rules" role="alert">
 A card with the same name already exists.
 </div>`;
-  // const isRepeatCards = cards.some((card) => card.number == number);
   const visa = document.getElementById('visa');
   const master = document.getElementById('master');
   document.getElementById("cardNumber").value = '';

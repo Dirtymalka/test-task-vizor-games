@@ -78,7 +78,7 @@ const createAddCardLayout = () => {
     return cardLayout;
   }
 
-const createModal = (child, okHandler) => {
+const createModal = (child) => {
   const modalLayout = `
   <div class="modal modal-add" tabindex="1" role="dialog">
             <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
