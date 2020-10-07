@@ -1,6 +1,6 @@
 import { createModal, createModalToConfirm, createAddCardLayout, createStaticCardLayout, createNewCardLayout } from '../layouts/layouts';
-import { changeCardType, showComment, invalidNumberHandler, checkCardNumber, inputCardNumberHandler, deleteCard, saveCard, closeModal, showModalConfirm, showModal } from '../handlers/handlers';
-import { getFromLocalStorage, setToLocalStorage } from '../../utils/utils';
+import { showComment, showModalConfirm, showModal } from '../handlers/handlers';
+import { getFromLocalStorage } from '../../utils/utils';
 import { CARDS } from '../../constants/constants';
 
 const createContent = () => {
