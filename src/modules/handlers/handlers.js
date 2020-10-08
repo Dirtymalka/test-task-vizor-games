@@ -95,8 +95,6 @@ function checkCardNumber() {
     return `${acc}${item.value}`;
   }, ``);
     if (!VISA_REG_EXP.test(numberInput) && !MASTER_CARD_REG_EXP.test(numberInput)) {
-      console.log(numberInput)
-      console.log('not visa')
       return false;
     }
   if (!checkCardValidation(numberInput)) return false;
