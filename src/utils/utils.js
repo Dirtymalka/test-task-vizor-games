@@ -11,7 +11,7 @@ const setToLocalStorage = (key, property) => {
   localStorage.setItem(key, JSON.stringify(property));
 };
 
-const checkCardValidation = (digits) => {
+const checkCardValidation = (cardNumber) => {
   let nCheck = 0, bEven = false;
   for (let n = cardNumber.length - 1; n >= 0; n--) {
     let cDigit = cardNumber.charAt(n),
