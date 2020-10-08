@@ -1,17 +1,14 @@
-import { createModal, createModalToConfirm, createAddCardLayout, createStaticCardLayout, createNewCardLayout } from '../layouts/layouts';
+import { createStaticCardLayout } from '../layouts/layouts';
 import { showComment, showModalConfirm, showModal } from '../handlers/handlers';
-import { getFromLocalStorage } from '../../utils/utils';
+import { getFromLocalStorage, transformDataCards } from '../../utils/utils';
 import { CARDS } from '../../constants/constants';
 
 const createContent = () => {
   const cards = getFromLocalStorage(CARDS, []);
-  const modalContainer = createModal(createNewCardLayout());
-  const modalToConfirm = createModalToConfirm();
-  const cardsList = `<ul class="cards-list list-group list-group-flush list-strings">${createAddCardLayout()}</ul>`;
-  document.querySelector('.main').insertAdjacentHTML('afterbegin', cardsList);
-  document.querySelector('.main').insertAdjacentHTML('beforeend', modalContainer);
-  document.querySelector('.main').insertAdjacentHTML('beforeend', modalToConfirm);
-  cards.map(({ number, type, comment }) => document.querySelector('.cards-list').insertAdjacentHTML('beforeend', createStaticCardLayout(number, type, comment)));
+  cards.map(({ number, type, comment }) => {
+    const [newComment, classType, disabled] = transformDataCards(type, comment);
+    document.querySelector('.cards-list').insertAdjacentHTML('beforeend', createStaticCardLayout(number, type, newComment, classType, disabled));
+  });
   document.getElementById('card-add').onclick = showModal;
   document.querySelectorAll('.delete').forEach((button) => button.onclick = showModalConfirm);
   document.querySelectorAll('.btn-collapse').forEach((button) => button.onclick = showComment);

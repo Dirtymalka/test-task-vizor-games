@@ -1,4 +1,4 @@
 import { createContent } from '../modules/createCards/createCards';
 import '../css/style.css';
 
-createContent();
+document.addEventListener('DOMContentLoaded', createContent);
