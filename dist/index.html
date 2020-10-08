@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Credit cards</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+<link href="style.css" rel="stylesheet"></head>
+
+<body>
+    <div class="app-container">
+        <header class="header">
+            <h1>Credit Cards</h1>
+        </header>
+        <main class="main" id="main">
+            <ul class="cards-list list-group list-group-flush list-strings">
+                <li class="list-group-item">
+                    <div class=" card card-add" id="card-add">
+                        <div class="card-position card-position-add">
+                          <img class="add" id="add" src="img/img/add.png" alt="">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <div class="modal modal-add" tabindex="1" role="dialog">
+                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Add card (You can add a credit card Visa or Master card)</h5>
+                            <button type="button" class="close close-modal" data-dismiss="modal" aria-label="Close">
+                                <span class="close-modal" aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="personal-container">
+                                <div class="card-number-container" style="display: flex;">
+                                    <input class="form-control cardNumber" type="text" maxlength="4" id="cardNumber1" data-idx="1" autocomplete="off" placeholder="XXXX"/>
+                                    <input class="form-control cardNumber" type="text" maxlength="4" id="cardNumber2" data-idx="2" autocomplete="off" placeholder="XXXX"/>
+                                    <input class="form-control cardNumber" type="text" maxlength="4" id="cardNumber3" data-idx="3" autocomplete="off" placeholder="XXXX"/>
+                                    <input class="form-control cardNumber" type="text" maxlength="4" id="cardNumber4" data-idx="4" autocomplete="off" placeholder="XXXX"/>
+                                </div>
+                                <div class="card" id="card-edit">
+                                    <div class="card-position">
+                                        <div class="card-position">
+                                            <div class="card-number">
+                                                <span class="card-number-edit" id="displayNumber-edit1" data-idx="1"></span>
+                                                <span class="card-number-edit" id="displayNumber-edit2" data-idx="2"></span>
+                                                <span class="card-number-edit" id="displayNumber-edit3" data-idx="3"></span>
+                                                <span class="card-number-edit" id="displayNumber-edit4" data-idx="4"></span>
+                                            </div>
+
+                                        </div>
+                                        <img class="sim" id="sim" src="img/img/sim.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="card-comment-container">
+                                    <textarea class="form-control " type="text" maxlength="1024" id="card-comment" placeholder="Comment"></textarea>
+                                </div>
+                              </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary close-modal" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary save-card">Save card</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal modal-confirm" tabindex="1" role="dialog">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close-modal close" data-dismiss="modal" aria-label="Close">
+                                <span class="close-modal" aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <span>Are you sure you want to delete this card?</span>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary close-modal" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary delete-card" >Ok</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+<script type="text/javascript" src="index.js"></script></body>
+
+</html>
